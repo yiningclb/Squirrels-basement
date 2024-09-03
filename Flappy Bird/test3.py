@@ -101,7 +101,7 @@ def game_loop():
     game_over = False
 
     while running:
-        draw_background()  # Draw the background first
+        draw_background()  
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -141,7 +141,7 @@ def game_loop():
             if bird_x + BIRD_WIDTH > pipe_x and bird_x < pipe_x + PIPE_WIDTH:
                 if bird_y < HEIGHT // 2 - pipe_gap // 2 + pipe_y or bird_y + BIRD_HEIGHT > HEIGHT // 2 + pipe_gap // 2 + pipe_y:
                     game_over = True
-                    hit_sound.play()  # Play the sound effect
+                    hit_sound.play()  
 
             # Update bird frame for animation
             frame_count += 1
@@ -149,7 +149,6 @@ def game_loop():
                 bird_frame = (bird_frame + 1) % len(BIRD_IMAGES)
 
         if game_over:
-            # Update high score if necessary
             if score > high_score:
                 high_score = score
                 save_high_score(high_score)
